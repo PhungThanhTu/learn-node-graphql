@@ -7,8 +7,10 @@ module.exports = {
         productsByPrice: (_, args) => {
             let min = args.min;
             let max = args.max;
-
             return productsModel.getProductsByPrice(min,max);
+        },
+        product: (_, args) => {
+            return productsModel.getProductById(args.id);
         }
     }
 };

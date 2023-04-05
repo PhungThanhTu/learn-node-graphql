@@ -23,4 +23,10 @@ function getProductsByPrice(min, max)
     });
 }
 
-module.exports = { getAllProducts, getProductsByPrice };
+function getProductById(id) {
+    return products.find((product) => {
+        return product.id === id;
+    });
+}
+
+module.exports = { getAllProducts, getProductsByPrice, getProductById };
