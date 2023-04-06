@@ -43,4 +43,19 @@ function addNewProduct(id, description, price) {
     return newProduct;
 }
 
-module.exports = { getAllProducts, getProductsByPrice, getProductById, addNewProduct };
+function addNewProductReview(id, rating, comment) {
+    const matchedProduct = getProductById(id);
+
+    if(matchedProduct) {
+        const newProductReview = {
+            rating,
+            comment
+        }
+        matchedProduct.reviews.push(newProductReview);
+
+        return newProductReview;
+    }
+    return undefined;
+}
+
+module.exports = { getAllProducts, getProductsByPrice, getProductById, addNewProduct, addNewProductReview };
